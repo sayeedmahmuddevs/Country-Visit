@@ -11,16 +11,16 @@ function App() {
   };
 
   // add flags
-  const [addFlags, setAddFlags] = useState<{ flag: string; name: string }[]>(
+  const [addFlags, setAddFlags] = useState<{ flag: string, name: string, isVisit: boolean }[]>(
     [],
   );
 
-  const handleFlagsClick = (flag: string, name: string) => {
+  const handleFlagsClick = (flag: string, name: string , isVisit: boolean) => {
     setAddFlags((prev) => {
       if (prev.some((country) => country.flag === flag)) {
         return prev;
       }
-      return [...prev, { flag, name }];
+      return [...prev, { flag, name, isVisit}];
     });
   };
 
@@ -33,7 +33,7 @@ function App() {
 
       <div>
         <div className="flex justify-between">
-          <div>Explored <span className="text-red-500 text-xl">{visitCount}</span>  Countries </div>
+          <div>Explored <span className="text-red-500 text-xl font-bold">{visitCount}</span>  Countries </div>
           <div>
             <label className="mr-2 font-bold">Search Country</label>
             <input
@@ -48,7 +48,7 @@ function App() {
           </div>
         </div>
 
-        <div className="max-w-full flex flex-wrap items-center gap-1">
+        <div className="max-w-full flex flex-wrap items-center gap-1 my-4">
           <h4 className="mr-2 font-bold">Visited Country : </h4>
 
           {addFlags.map((country) => (

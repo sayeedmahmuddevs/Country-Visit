@@ -3,6 +3,7 @@ export interface CountryType{
         common: string
         official: string
     },
+    isVisit:boolean
     ccn3:{
         ccn3:string
     },

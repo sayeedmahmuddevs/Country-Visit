@@ -1,24 +1,24 @@
-import { useState } from "react";
 import type { CountryType } from "../CountryType";
 
 interface dataType {
-  data: CountryType;
+  data: CountryType & {isVisit: Boolean};
   handleVisitCount: (num:number) => void;
-  handleFlagsClick: (flag: string, name:string) => void;
+  handleFlagsClick: (flag: string, name:string, isVisit:boolean) => void;
+  handleVisit: (id: string) => void;
 }
 
-function Country({ data, handleVisitCount, handleFlagsClick }: dataType) {
-  const [visited, setVisited] = useState<boolean>(false);
+function Country({ data, handleVisitCount, handleFlagsClick, handleVisit }: dataType) {
+  
 
   const handleClick = () => {
-    
-    if(!visited){
-
-      setVisited(true);
+      if(!data.isVisit)
       handleVisitCount(1)
-      handleFlagsClick(data.flags.flags.png, data.name.common)
+      handleFlagsClick(data.flags.flags.png, data.name.common, true)
+      handleVisit(data.ccn3.ccn3)
 
-    }
+      
+
+    
 
 
   };
@@ -41,9 +41,9 @@ function Country({ data, handleVisitCount, handleFlagsClick }: dataType) {
         <button
           type="button"
           onClick={handleClick}
-          className={`border-green-500 rounded-md w-15  ${visited? "bg-gray-400 text-white" : "text-blue-500 underline underline-offset-1 bg-gray-200" }`}
+          className={`border-green-500 rounded-md w-15 ${data.isVisit? "bg-gray-200 ": "text-blue-500 underline underline-offset-1 bg-gray-100"}  `}
         >
-          {visited ? "Visited" : "Visit"}
+          {data.isVisit? "Visited": "Visit"}
         </button>
 
         <button className="border-green-500 rounded-md bg-gray-400 w-15">
