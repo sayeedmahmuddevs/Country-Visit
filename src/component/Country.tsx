@@ -30,7 +30,7 @@ function Country({ data, handleVisitCount, handleFlagsClick }: dataType) {
       </h1>
 
       <div className="flex gap-5 mb-5">
-        <img src={data.flags.flags.png} alt="" className="w-40 " />
+        <img src={data.flags.flags.png} alt="" className="w-40 h-25 " />
 
         <div className="flex justify-center items-center">
           <p>{data.name.official}</p>

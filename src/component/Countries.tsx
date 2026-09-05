@@ -7,13 +7,14 @@ interface DataType {
   handleVisitCount: (num:number) => void;
   handleFlagsClick: (flag: string, name:string) => void;
   search: string
-  
 }
 
 
 export default function Countries({ data, handleVisitCount, handleFlagsClick, search}: DataType) {
   const datas = use(data);
 
+  
+  // searchBar
   const filterData = datas.filter(val => val.name.common.toLowerCase().startsWith(search.toLowerCase().trim()))
 
   return (
