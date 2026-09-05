@@ -4,6 +4,7 @@ import Data from "./Data";
 
 const dataPromise = Data();
 function App() {
+  
   // visit flags count
   const [visitCount, setVisitCount] = useState(0);
   const handleVisitCount = (num: number) => {
