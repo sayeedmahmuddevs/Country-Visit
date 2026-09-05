@@ -1,6 +1,8 @@
 # React + TypeScript + Vite
 
-visit country Explore: - (countryexplorevisit.netlify.app)
+## Live Demo
+
+[🌍 Country Explore](https://country-explore-xyz.netlify.app)
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
 Currently, two official plugins are available:
