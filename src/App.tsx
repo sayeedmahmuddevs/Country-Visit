@@ -38,7 +38,7 @@ function App() {
   return (
     <div className="max-w-310 mx-auto">
       <h1 className="text-center text-green-500 font-bold my-4">
-        All Country Name
+        All Country
       </h1>
 
       <div>
@@ -54,7 +54,7 @@ function App() {
         </div>
 
         <div className="max-w-full flex flex-wrap items-center gap-1">
-          <h4 className="mr-2">All flags Add:</h4>
+          <h4 className="mr-2">visited Country : </h4>
 
           {addFlags.map((country) => (
             <div
@@ -87,6 +87,7 @@ function App() {
           handleVisitCount={handleVisitCount}
           handleFlagsClick={handleFlagsClick}
           search = {search}
+
         ></Countries>
       </Suspense>
     </div>

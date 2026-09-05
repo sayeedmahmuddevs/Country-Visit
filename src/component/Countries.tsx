@@ -11,11 +11,10 @@ interface DataType {
 }
 
 
-
 export default function Countries({ data, handleVisitCount, handleFlagsClick, search}: DataType) {
   const datas = use(data);
 
-  const filterData = datas.filter(val => val.name.common.toLowerCase().indexOf(search.toLowerCase())!==-1)
+  const filterData = datas.filter(val => val.name.common.toLowerCase().startsWith(search.toLowerCase().trim()))
 
   return (
     <>
