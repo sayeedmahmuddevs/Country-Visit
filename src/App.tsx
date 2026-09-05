@@ -4,14 +4,18 @@ import Data from "./Data";
 
 const dataPromise = Data();
 function App() {
-  const [visitCount, setVisitCount] = useState(0);
-  const [addFlags, setAddFlags] = useState<{ flag: string; name: string }[]>(
-    [],
-  );
+  
+ 
 
+  // visit flags count
+  const [visitCount, setVisitCount] = useState(0);
   const handleVisitCount = (num: number) => {
     setVisitCount((prev) => prev + num);
   };
+
+
+  // add flags
+  const [addFlags, setAddFlags] = useState<{ flag: string; name: string }[]>([]);
 
   const handleFlagsClick = (flag: string, name: string) => {
     setAddFlags((prev) => {
@@ -22,6 +26,15 @@ function App() {
     });
   };
 
+  // searchbox
+  const [search, setSearch] = useState("")
+
+  
+
+
+
+
+
   return (
     <div className="max-w-310 mx-auto">
       <h1 className="text-center text-green-500 font-bold my-4">
@@ -29,7 +42,16 @@ function App() {
       </h1>
 
       <div>
-        <div>VisitedCount: {visitCount} </div>
+        <div className="flex justify-between">
+          <div>VisitedCount: {visitCount} </div>
+          <div>
+            <label className="mr-2">Search Country</label>
+            <input className="border" type="text" 
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}            
+            />
+          </div>
+        </div>
 
         <div className="max-w-full flex flex-wrap items-center gap-1">
           <h4 className="mr-2">All flags Add:</h4>
@@ -64,6 +86,7 @@ function App() {
           data={dataPromise}
           handleVisitCount={handleVisitCount}
           handleFlagsClick={handleFlagsClick}
+          search = {search}
         ></Countries>
       </Suspense>
     </div>
